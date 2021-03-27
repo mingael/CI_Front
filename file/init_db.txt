@@ -1,0 +1,107 @@
+CREATE TABLE class (
+	idx integer not null auto_increment primary key,
+	title character varying(100) comment '과목영역명',
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table class comment='영역';
+
+create table subject (
+	idx integer not null auto_increment primary key,
+	class_idx integer not null comment '수업',
+	title character varying(200) comment '과목명',
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table subject comment='과목';
+
+CREATE TABLE word_content (
+	idx integer not null auto_increment primary key,
+	word_idx integer comment '단어index',
+	content text comment '설명',
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table word_content comment='단어설명';
+
+CREATE TABLE word (
+	idx integer not null auto_increment primary key,
+	hangul character varying(200) comment '한국어',
+	english character varying(200) comment '영어',
+	abbreviation character varying(10) comment '약어',
+	summary text comment '요약',
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table word comment='단어';
+
+CREATE TABLE word_example (
+	idx integer not null auto_increment primary key,
+	word_idx integer,
+	question text comment '문제',
+	explanation text comment '풀이',
+	answer text comment '정답',
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table word_example comment='단어예제';
+
+CREATE TABLE contents (
+	idx integer not null auto_increment primary key,
+	subject_idx integer not null,
+	comment text,
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table contents comment='주제';
+
+CREATE TABLE content (
+	idx integer not null auto_increment primary key,
+	contents_idx integer not null,
+	title character varying(150),
+	content text,
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+alter table content comment='주제내용';
+
+CREATE TABLE content_sub (
+	idx integer not null auto_increment primary key,
+	content_idx integer not null,
+	depth_parent integer,
+	depth integer,
+	title character varying(150),
+	comment text,
+	status character varying(1) default 'Y',
+	stime timestamp,
+	dtime timestamp
+);
+
+insert into class (title, status, stime) values ('소프트웨어 설계', 'Y', now());
+insert into class (title, status, stime) values ('소프트웨어 개발', 'Y', now());
+insert into class (title, status, stime) values ('데이터베이스 구축', 'Y', now());
+insert into class (title, status, stime) values ('프로그래밍 언어 활용', 'Y', now());
+insert into class (title, status, stime) values ('정보 시스템 관리', 'Y', now());
+
+insert into subject (class_idx, title, status, stime) values (1, '요구사항 확인', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (1, '화면 설계', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (2, '데이터 입출력 구현', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (2, '통합 구현', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (2, '제품 소프트웨어 패키징', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (2, '인터페이스 구현', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (2, '애플리케이션 테스트 관리', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (3, 'SQL 응용', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (4, '서버 프로그램 구현', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (4, '프로그래밍 언어 활용', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (4, '응용 SW 기초 기술 활용', 'Y', now());
+insert into subject (class_idx, title, status, stime) values (5, '소프트웨어 개발 보안 구축', 'Y', now());
+
+
+alter table word auto_increment=1;
