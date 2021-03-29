@@ -1,4 +1,4 @@
-<?php view('/common/header'); ?>
+<?=view('/common/header')?>
 
 <?php if(isset($list) && count($list) > 0) : ?>
     <?php foreach($list as $item): ?>
@@ -10,4 +10,4 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<?php view('/common/footer'); ?>
+<?=view('/common/footer')?>

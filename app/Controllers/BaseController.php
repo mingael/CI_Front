@@ -52,7 +52,7 @@ class BaseController extends Controller
         
         if(empty($this->session->email) && substr(uri_string(), 0, 4) !== 'auth')
         {
-            $this->response->redirect('/auth/in');
+            $this->response->redirect('/auth/login');
         }
     }
 }

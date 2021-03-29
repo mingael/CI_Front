@@ -34,9 +34,10 @@ $routes->get('/', 'Home::index');
 
 // Certificate
 $routes->group('certificate', function($routes) {
-	$routes->add('/', 'Certificate::index');
-	$routes->add('study/(:num)', 'Certificate::study/$1');
-	$routes->add('word_all', 'Certificate::getWordAll');
+	$routes->get('/', 'Certificate::index');
+	$routes->get('study/(:num)', 'Certificate::study/$1');
+	$routes->get('word_all', 'Certificate::getWordAll');
+	$routes->get('example/(:lan)/(:num)', 'Certificate::example/$1/$2');
 });
 
 // Excel
@@ -47,8 +48,8 @@ $routes->group('excel', function($routes) {
 
 // Sign
 $routes->group('auth', function($routes) {
-	$routes->add('in', 'Auth::in');
-	$routes->add('in_act', 'Auth::in_act');
+	$routes->get('login', 'Auth::login');
+	$routes->post('login_act', 'Auth::login_act');
 });
 /**
  * --------------------------------------------------------------------
