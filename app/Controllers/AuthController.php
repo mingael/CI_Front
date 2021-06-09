@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Auth extends BaseController
+class AuthController extends BaseController
 {
 	var $db;
 
@@ -16,6 +16,9 @@ class Auth extends BaseController
 		$this->db->close();
 	}
 
+	/**
+	 *	로그인 화면
+	 */
 	public function login()
 	{
 		$sql_chk = "SELECT idx FROM bad_ip WHERE ip=?";
@@ -31,6 +34,9 @@ class Auth extends BaseController
 		}
 	}
 
+	/**
+	 *	로그인 처리
+	 */
 	public function login_act()
 	{
 		$sql = "SELECT idx FROM customer WHERE email=? AND password=? AND status='Y' AND login_fail_cnt<5";
@@ -42,7 +48,7 @@ class Auth extends BaseController
 			$this->db->query($sql_ok, [$_POST['email']]);
 
 			$this->session->email = $_POST['email'];
-			$this->response->redirect('/certificate');
+			$this->response->redirect('/main');
 		}
 		else
 		{
@@ -75,6 +81,15 @@ class Auth extends BaseController
 			}
 			return view('auth/login_act', $data);
 		}
+	}
+
+	/**
+	 *	로그아웃
+	 */
+	public function logout()
+	{
+		$this->session->destroy();
+		return view('auth/login');
 	}
 }
 ?>

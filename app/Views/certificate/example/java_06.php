@@ -1,20 +1,21 @@
-<pre>
-	<code>
-class Test {
-	public static void main (String[] args) throws java.lang.Exception {
+<?php
+$title = '값 교환';
+$code = '
+class Test
+{
+	public static void main (String[] args)
+	{
 		int a=1, b=43, c=3;
 		int temp;
 		
 		temp = a;
-		if(b &gt; temp) temp = b;
-		if(c &gt; temp) temp = c;
+		if(b > temp) temp = b;
+		if(c > temp) temp = c;
 		
 		System.out.println(temp);
 	}
 }
-	</code>
-</pre>
-
-<pre>
-43
-</pre>
+';
+$result = '43';
+codeConvert($code, $title, $result);
+?>

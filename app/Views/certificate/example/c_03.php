@@ -1,6 +1,7 @@
-<pre>
-	<code>
-#include &lt;stdio.h&gt;
+<?php
+$title = '거품정렬';
+$code = '
+#include <stdio.h>
 
 #define SIZE 4
 
@@ -13,11 +14,11 @@ void bubble_sort(int* list)
 {
 	int i, j, temp;
 	
-	for(i=0; i&lt;SIZE-1; i++)
+	for(i=0; i<SIZE-1; i++)
 	{
-		for(j=0; j&lt;(SIZE-1)-i; j++)
+		for(j=0; j<(SIZE-1)-i; j++)
 		{
-			if(list[j] &gt; list[j+1])
+			if(list[j] > list[j+1])
 			{
 				temp = list[j];
 				list[j] = list[j+1];
@@ -26,16 +27,12 @@ void bubble_sort(int* list)
 		}
 	}
 	
-	for(i=0; i&lt;SIZE; i++)
+	for(i=0; i<SIZE; i++)
 	{
 		printf("%d ", list[i]);
 	}
 }
-	</code>
-</pre>
-
-<pre>
-	<code>
-1 2 4 7 
-	</code>
-</pre>
+';
+$result = '1 2 4 7';
+codeConvert($code, $title, $result);
+?>

@@ -1,8 +1,6 @@
-<?=view('/common/header')?>
-
-<?php foreach($list as $item): ?>
+<?php foreach($list_data as $idx => $item): ?>
 <div class="box">
-	<b><?=$item['title']?></b><br>
+	<a href="/certificate/edit/<?=$idx?>"></a><b><?=$item['title']?></b><br>
 
 	<?=$item['summary'] ?? ''?>
 	<?php if(isset($item['contents'])): ?>
@@ -14,5 +12,3 @@
 	<?php endif ?>
 </div>
 <?php endforeach ?>
-
-<?=view('/common/footer')?>

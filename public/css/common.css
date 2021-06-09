@@ -1,19 +1,42 @@
-body { font-size:14px; line-height:1.5; }
+@font-face {
+	font-family:"NanumBarunGothic";
+	src:url("/font/NanumBarunGothic.otf") format("opentype"),
+		url("/font/NanumBarunGothic.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal; 
+}
+body { margin:0; padding:0; border:0; font-size:14px; line-height:1.5; font-family:"NanumBarunGothic"; }
 header { width:100%; }
 a { text-decoration:none; color:black; }
 ul { padding:0; margin:0; list-style:none; }
 input { height:30px; margin:4px; border:none; border-bottom:1px solid #eee; }
 button { width:120px; height:30px; padding:0; margin:4px; background-color:lightskyblue; border:none; cursor:pointer; }
+table { border-collapse:collapse; border:1px solid black; }
+td { border:1px solid black; }
 
 .clearfix::after { clear:both; content:""; display:block; }
 .box { margin:12px auto; padding:4px; }
 .box-center { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); }
+.box-right { position:absolute; top:50%; right:8%; transform:translate(0, -50%); }
+.item { float:left; }
+
+/* 코드 블럭 */
+.code-block { font-family:"Inconsolata"; padding:12px; margin:4px; background:#282b2e; color:#a9b7c6; }
+.code-result { }
+.reserved-word { color:#cc7832; }
+
+/* 색상 */
+.point { color:red; }
+.point-code { color:yellow; }
 
 /* 상단 */
-.header { position:fixed; left:0; right:0; top:0; height:46px; padding:0; margin:0; text-align:center; border-bottom:1px solid #eee; background:rgba(255,255,255,.9); z-index:100; }
+.wrap { display:block; }
+.header { position:fixed; left:0; right:0; top:0; height:46px; padding:0 20px; margin:0; text-align:center; border-bottom:1px solid #eee; background:rgba(255,255,255,.9); z-index:100; }
+.main { display:block; }
 
 /* 내용 */
-.container { padding-top:46px; }
+.container { padding-top:46px; padding-left:8px; padding-right:8px; }
+.title { display:block; margin-top:8px; font-weight:bold; }
 
 /* 로그인 */
 #login-box { position:absolute; left:0; right:0; top:0; bottom:0; width:500px; height:300px; padding:12px; margin:auto auto; text-align:center; background-color:aliceblue; border-radius:20px; }
@@ -21,8 +44,13 @@ button { width:120px; height:30px; padding:0; margin:4px; background-color:light
 #login-box input { width:100%; }
 #login-box button { width:100%; }
 
+/* 설정값 */
+.w100 { width:100%; }
+.mb24 { margin-bottom:24px; }
 
-
-@media (min-width: 768px) {
+/* 모바일 */
+@media all and (max-width: 768px) {
 	body { font-size: 16px; }
+	#login-box { width:80%; }
+	.container { padding-left:12px; padding-right:12px; }
 }

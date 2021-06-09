@@ -1,7 +1,7 @@
-스택 연산 프로그램
-<pre>
-	<code>
-#include &lt;stdio.h&gt;
+<?php
+$title = '스택 연산 프로그램';
+$code = '
+#include <stdio.h>
 
 #define max_stack_size 3
 
@@ -39,7 +39,7 @@ void stackEmpty()
 
 void push(int item)
 {
-	if(top &gt;= max_stack_size - 1)
+	if(top >= max_stack_size - 1)
 		stackFull();
 	else
 		stack[++top] = item;
@@ -47,29 +47,20 @@ void push(int item)
 
 int pop()
 {
-	if(top &lt;= -1)
+	if(top <= -1)
 		stackEmpty();
 	else
 		return stack[top--];
-}
-	</code>
-</pre>
+}';
 
-max_stack_size 가 10일 때
-<pre>
-1: 2
-2: 0
-3: 1
-4: 8
-</pre>
-
-max_stack_size 가 3일 때
-<pre>
+$result = '
 Stack is full, cannot add element.
 1: 0
 2: 1
 3: 8
 
 Stack is empty, cannot delete element.
-4: 0
-</pre>
+4: 0';
+
+codeConvert($code, $title, $result);
+?>

@@ -7,7 +7,7 @@ use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use \PhpOffice\PhpSpreadsheet\writer\Xlsx;
 
 
-class Excel extends BaseController
+class ExcelController extends BaseController
 {
 	function read()
 	{

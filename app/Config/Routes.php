@@ -30,26 +30,31 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::index');
+$routes->get('/', 'AuthController::login');
+$routes->get('/main', 'MainController::index');
 
 // Certificate
 $routes->group('certificate', function($routes) {
-	$routes->get('/', 'Certificate::index');
-	$routes->get('study/(:num)', 'Certificate::study/$1');
-	$routes->get('word_all', 'Certificate::getWordAll');
-	$routes->get('example/(:lan)/(:num)', 'Certificate::example/$1/$2');
+	$routes->get('/', 'CertificateController::index');
+	$routes->get('study/(:num)', 'CertificateController::study/$1');
+	$routes->get('word_all', 'CertificateController::getWordAll');
+	$routes->get('example/(:type)/(:num)', 'CertificateController::example/$1/$2');
+	$routes->get('edit/(:num)', 'CertificateController::edit/$1');
+	$routes->add('algorism/sort', 'CertificateController::algorism_sort');
 });
 
 // Excel
 $routes->group('excel', function($routes) {
-	$routes->add('read', 'Excel::read');
-	$routes->add('word_read', 'Excel::wordRead');
+	$routes->add('read', 'ExcelController::read');
+	$routes->add('word_read', 'ExcelController::wordRead');
 });
 
 // Sign
 $routes->group('auth', function($routes) {
-	$routes->get('login', 'Auth::login');
-	$routes->post('login_act', 'Auth::login_act');
+	$routes->get('login', 'AuthController::login');
+	$routes->post('login_act', 'AuthController::login_act');
+	$routes->get('logout', 'AuthController::logout');
 });
 /**
  * --------------------------------------------------------------------

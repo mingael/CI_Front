@@ -1,14 +1,13 @@
-실행 결과 쓰기
-
-<pre>
-	<code>
+<?php
+$title = '2진수 구하기';
+$code = '
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
 class Test
 {
-	public static void main (String[] args) throws java.lang.Exception
+	public static void main (String[] args)
 	{
 		int[] arr = new int[8];
 		
@@ -22,13 +21,13 @@ class Test
 			i--;
 		}
 		
-		for(int j=0; j&lt;arr.length; j++)
+		for(int j=0; j<arr.length; j++)
 		{
 			System.out.printf("%d", arr[j]);
 		}
 	}
 }
-	</code>
-</pre>
-
-00001011
+';
+$result = '00001011';
+codeConvert($code, $title, $result);
+?>
