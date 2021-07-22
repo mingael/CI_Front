@@ -20,7 +20,10 @@ class CertificateController extends BaseController
 	{
 	}
 
-	// 목차
+	/**
+	 *	과목 목차
+	 *
+	 */
 	public function index()
 	{
 		$list_data = self::$certificate->getIndexMenu();
@@ -34,6 +37,10 @@ class CertificateController extends BaseController
 		return view('certificate/template', $pade_data);
 	}
 
+	/*
+	 *	과목 내용
+	 *
+	 */
 	public function study($seg=false)
 	{
 		if($seg !== false)
@@ -54,7 +61,20 @@ class CertificateController extends BaseController
 		}
 	}
 
-	// 단어 전체 보기
+	/*
+	 *	단어 정보
+	 *
+	 */
+	public function getWordInfo($idx=0)
+	{
+		$list_data = self::$certificate->getWordInfo($idx);
+		echo json_encode($list_data);
+	}
+
+	/*
+	 *	단어 전체 보기
+	 *
+	 */
 	public function getWordAll()
 	{
 		$list_data = self::$certificate->getWordAll();
@@ -62,20 +82,29 @@ class CertificateController extends BaseController
 		$pade_data = Array(
 			'template_title' => '정보처리기사 단어',
 			'view_name' => '/certificate/word',
+			'link_list' => ['modal', 'icon_box'],
 			'list_data' => $list_data
 		);
 
 		return view('certificate/template', $pade_data);
 	}
 
-	public function example($type, $num)
+	/**
+	 *	코딩 예제
+	 *
+	 */
+	public function getExample($type='', $num=0)
 	{
 		$num = sprintf('%02d', $num);
-        $pade_data = Array(
+
+		$pade_data = Array(
+			'template_title' => '코딩 예제',
+			'view_name' => '/certificate/example/common',
             'type' => $type,
             'num' => $num
-        );
-		return view('certificate/example/common', $pade_data);
+		);
+
+		return view('certificate/template', $pade_data);
 	}
 
 	public function algorism_sort()

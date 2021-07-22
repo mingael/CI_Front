@@ -25,6 +25,22 @@ class BackClient extends GuzzleClient
 
 	#--------------------------------------------------
 	#
+	#	로그인
+	#
+	#--------------------------------------------------
+	// 차단 IP 확인
+	public function getAuthCheckBadIp($param): array
+	{
+		return self::post('auth/bad_ip', $param);
+	}
+	// 로그인
+	public function getAuthlogin($param): array
+	{
+		return self::post('auth/login', $param);
+	}
+
+	#--------------------------------------------------
+	#
 	#	정보처리기사 
 	#
 	#--------------------------------------------------
@@ -34,11 +50,16 @@ class BackClient extends GuzzleClient
 		return self::get('certificate/index');
 	}
 	// 과목 내용
-	public function getCertificateStudyList($seg): array
+	public function getCertificateStudyList($params): array
 	{
-		return self::get('certificate/study');
+		return self::post('certificate/study', $params);
 	}
 	// 단어
+	public function getCertificateWordInfo($params): array
+	{
+		return self::post('certificate/word', $params);
+	}
+	// 단어 전체
 	public function getCertificateWordAll(): array
 	{
 		return self::get('certificate/word_all');

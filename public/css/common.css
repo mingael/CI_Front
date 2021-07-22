@@ -5,12 +5,13 @@
 	font-style:normal;
 	font-weight:normal; 
 }
-body { margin:0; padding:0; border:0; font-size:14px; line-height:1.5; font-family:"NanumBarunGothic"; }
+body { min-height:100vh; margin:0; padding:0; border:0; font-size:14px; line-height:1.5; font-family:"NanumBarunGothic"; background:linear-gradient(45deg, #ffe3e3, #d0ebff); }
 header { width:100%; }
+footer { height:50px; }
 a { text-decoration:none; color:black; }
 ul { padding:0; margin:0; list-style:none; }
 input { height:30px; margin:4px; border:none; border-bottom:1px solid #eee; }
-button { width:120px; height:30px; padding:0; margin:4px; background-color:lightskyblue; border:none; cursor:pointer; }
+button { width:120px; height:34px; padding:0; margin:4px; background-color:lightskyblue; border-radius:5px; border:none; cursor:pointer; color:white; }
 table { border-collapse:collapse; border:1px solid black; }
 td { border:1px solid black; }
 
@@ -34,19 +35,44 @@ td { border:1px solid black; }
 .header { position:fixed; left:0; right:0; top:0; height:46px; padding:0 20px; margin:0; text-align:center; border-bottom:1px solid #eee; background:rgba(255,255,255,.9); z-index:100; }
 .main { display:block; }
 
+/* 하단 */
+.bottom-box { margin-top:32px; text-align:center; }
+
 /* 내용 */
 .container { padding-top:46px; padding-left:8px; padding-right:8px; }
 .title { display:block; margin-top:8px; font-weight:bold; }
 
-/* 로그인 */
-#login-box { position:absolute; left:0; right:0; top:0; bottom:0; width:500px; height:300px; padding:12px; margin:auto auto; text-align:center; background-color:aliceblue; border-radius:20px; }
-#login-box div { width:60%; }
-#login-box input { width:100%; }
-#login-box button { width:100%; }
+/* main */
+.main-container { padding:12%; }
+.main-box { float:left; width:20%; height:100px; text-align:center; vertical-align:middle; border:1px solid gray; background-color:yellow; }
+
+/* 글래스모피즘(Glassmorphism) */
+.glass-bg { height:100vh; position:relative; }
+.glass-box {
+	display:block; margin:0 auto; 
+	background:rgba(255, 255, 255, 0.4); border-radius:16px; border:1px solid rgba(255, 255, 255, 0.2); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px);
+	cursor:pointer;
+}
+.glass-box > span { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#313256 !important; }
+.glass-border {  border-radius:5px; border:1px solid rgba(255, 255, 255, 0.2); }
+
+/* 목록 */
+.white-box { display:block; width:80%; padding:16px; margin:8px auto; background:rgba(255, 255, 255, 0.6); border-radius:16px; text-align:left;  }
+.list > li { padding:12px 0; margin:0 12px; border-bottom:1px solid #eef; }
+.list > li:last-child { border-bottom:none; }
+.list_title { margin:20px 12px; color:#313256; font-weight:bold; font-size:18px; }
 
 /* 설정값 */
 .w100 { width:100%; }
 .mb24 { margin-bottom:24px; }
+
+/* 배경색 */
+.bg-grd { background:linear-gradient(45deg, #ffe3e3, #d0ebff); }
+.bg-grd-puple { background:linear-gradient(45deg, #FC466B, #3F5EFB); }
+.bg-dark-black { background-color:#0C121C; }
+.bg-sky { background-color:aliceblue; }
+.bg-alp { background:rgba(255, 255, 255, 0.4); }
+
 
 /* 모바일 */
 @media all and (max-width: 768px) {

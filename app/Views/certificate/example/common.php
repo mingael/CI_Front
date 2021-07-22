@@ -1,5 +1,3 @@
-<?=view('/common/header')?>
-
 <?=include('func.php')?>
 
 <?=view('/certificate/example/nav')?>
@@ -9,5 +7,3 @@
     <?=view('/certificate/example/'. $type .'_' . $num)?>
     <?php endif ?>
 </div>
-
-<?=view('/common/footer')?>

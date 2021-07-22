@@ -1,15 +1,15 @@
 <?=view('/common/header')?>
 
-<div id="login-box">
-    <div class="box-center">
-        <form name="frm" method="POST" action="/auth/login_act">
-            <ul>
-                <li><input type="text" name="email" value=""></li>
-                <li><input type="password" name="pwd" value="" onkeyup="enter('end');"></li>
-                <li><button type="button" onclick="sendit();">Sign in</button></li>
-            <ul>
-        </form>
-    </div>
+<div class="glass-bg">
+	<div class="glass-box" id="login-box">
+		<div class="box-center">
+			<form name="frm" method="POST" action="/auth/login_act">
+				<input class="glass-border" type="text" name="email" value=""><br>
+				<input class="glass-border" type="password" name="pwd" value="" onkeyup="enter('end');"><br>
+				<button class="glass-border" type="button" onclick="sendit();">Sign In</button>
+			</form>
+		</div>
+	</div>
 </div>
 
 <script>
